@@ -21,7 +21,11 @@
   "keywords": [
     "react",
     "redux",
-    "form"
+    "form",
+    "components",
+    "stateless",
+    "functional",
+    "presentational"
   ],
   "devDependencies": {
     "babel-cli": "^6.24.1",
