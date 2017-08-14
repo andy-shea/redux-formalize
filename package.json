@@ -2,7 +2,7 @@
   "name": "redux-formalize",
   "description": "Seamless management of stateless forms in your React/Redux app",
   "author": "Andy Shea <aa.shea@gmail.com>",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
