@@ -1,0 +1,64 @@
+{
+  "name": "redux-formalize",
+  "description": "Seamless management of stateless forms in your React/Redux app",
+  "author": "Andy Shea <aa.shea@gmail.com>",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "cross-env NODE_ENV=test nyc tape ./test/**/*.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "prebuild": "npm test",
+    "build": "babel src -d lib",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andy-shea/redux-formalize"
+  },
+  "homepage": "https://github.com/andy-shea/redux-formalize",
+  "keywords": [
+    "react",
+    "redux",
+    "form"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "codecov": "^2.3.0",
+    "cross-env": "^5.0.5",
+    "enzyme": "^2.9.1",
+    "html-webpack-plugin": "^2.29.0",
+    "jsdom": "^11.1.0",
+    "jsdom-global": "^3.0.2",
+    "nyc": "^11.1.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.1",
+    "redux-mock-store": "^1.2.3",
+    "redux-thunk": "^2.2.0",
+    "tape": "^4.8.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "form-serialize": "^0.7.2",
+    "lodash.isfunction": "^3.0.8",
+    "recompose": "^0.23.5",
+    "reselect": "^3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0-0 || ^16.0.0-0",
+    "react-redux": "^4.3.0 || ^5.0.0",
+    "redux": "^3.0.0"
+  }
+}
