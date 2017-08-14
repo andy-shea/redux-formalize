@@ -13,7 +13,7 @@ yarn add redux-formalize
 
 ## Setup
 
-### 1. Add a form reducer to your root reducer
+### :one: Add a form reducer to your root reducer
 
 ```javascript
 import {formsReducerCreator} from 'redux-formalize';
@@ -24,9 +24,9 @@ const rootReducer = combineReducers({
 }
 ```
 
-### 2. Add form meta to your actions
+### :two: Add form meta to your actions
 
-Ensure your asynchronous action triad (pending, success, and failure actions) for submitting the form have the same form name as given to `connectForm` below.
+Ensure your asynchronous action triad for submitting the form (pending, success, and failure actions) have the same `formName` as given to `connectForm` below.
 
 ```javascript
 const actionCreators = {
@@ -43,10 +43,11 @@ const actionCreators = {
 };
 ```
 
-### 3. Connect and configure your stateless form:
+### :three: Connect and configure your stateless form:
 ```javascript
 import {connectForm} from 'redux-formalize';
 
+// your stateless form enhanced with handlers and form state provided by redux-formalize
 function Form({fields, updateField, submitForm, state: {isSubmitting, errors}}) {
   return (
     <form onSubmit={submitForm} onChange={updateField}>
@@ -78,10 +79,12 @@ function Form({fields, updateField, submitForm, state: {isSubmitting, errors}}) 
 
 const fieldNames = ['field', 'anotherField', 'lastField'];
 
+// props are passed to your submit handler including any dispatched wrapped action creators
 function onSubmit({saveFormValues, fields}) {
   saveFormValues(fields.field, fields.anotherField, fields.lastField);
 }
 
+// connect the form
 export default connectForm('myFormName', fieldNames, onSubmit, {actionCreators})(Form);
 ```
 
@@ -123,11 +126,9 @@ Returns a higher-order component that will supply the wrapped stateless form wit
 - `updateField` - a function to be used to handle the form elements' `change` event. It can either be placed on each form element or on the parent form to handle any `change` events via bubbling
 - `updateForm` - a convenience function which can be used to manually update form elements that either don't fire `change` events or may require specific processing to extract the required value before saving to state.  Use this in combination with `handlers` defined above for custom form element change handling
 
-## Example Form
+## Example
 
-```
-yarn && yarn start
-```
+`yarn && yarn start` :thumbsup:
 
 Use Redux DevTools to monitor the actions and state changes on form submission.
 
